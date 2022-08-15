@@ -1,0 +1,17 @@
+<%- include("partials/header") -%>
+
+<h1>Welcome</h1>
+<p><%=homeContainer %></p>
+
+<form class="homeForm" action="/delete" method="post">
+  <% for(let i=0; i<arr.length; i++) { %>
+    <div class="titleDiv">
+      <a href="/posts/<%=arr[i]._id%>"><h1><%=arr[i].title%></h1></a>
+      <a href="/edit/<%=arr[i]._id%>">Edit</a>
+      <button class="btnn" type="submit" name="button" value="<%=arr[i].title%>">Delete</button>
+    </div>
+    <p><%= arr[i].desc.slice(0,150)%>... </p>
+  <%}%>
+</form>
+
+<%- include("partials/footer") -%>
